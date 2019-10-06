@@ -10,7 +10,7 @@ $borderColor: $dkGrey;
 $background: $white;
 $mainHeading: 8em;
 $subHeading: 2em;
-
+$smallScreen: 767px;
 html {
   font-size: 62.5%;
 }
@@ -61,6 +61,10 @@ body {
   height: 300px;
   width: 600px;
   margin: auto;
+
+  @media screen and (max-width: $smallScreen) {
+    width: 300px;
+  }
   
   .calendar-left-panel {
     display: block;
@@ -69,6 +73,9 @@ body {
     font-size: 1.3rem;
     background: #43a398;
     text-align: center;
+    @media screen and (max-width: $smallScreen) {
+      display: none;
+    }
 
     .day-display {
       align-items: center;
