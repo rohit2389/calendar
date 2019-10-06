@@ -55,7 +55,7 @@ class Calendar extends React.Component {
 
     render() {
         const { month, selected } = this.state;
-        const { isDisplay } = this.props;
+        const { isDisplay, handleCalendar } = this.props;
 
         return (
             <main className={"calendar-wrapper " + (isDisplay ? "show" : "hide")}>
@@ -75,6 +75,10 @@ class Calendar extends React.Component {
                             month= { month }
                             selected= { selected }
                         />
+                        <footer className="footer">
+                            <button onClick={ this.handleDate }>Save</button>
+                            <button onClick={ handleCalendar }>Cancel</button>
+                        </footer>
                     </aside>
                 </section>
             </main>
@@ -82,7 +86,7 @@ class Calendar extends React.Component {
     }
 }
 Calendar.defaultProps  = {
-    isDisplay: true,
+    isDisplay: false,
     selected: moment().format("DD/MM/YYYY")
 }
 
