@@ -17,7 +17,7 @@ html {
 
 body {
   background: $white;
-  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  font-family: "OpenSansBold", Arial, sans-serif;
 }
 
 .vertical-center {
@@ -82,14 +82,15 @@ body {
 
     .date {
       text-align: center;
-      font-size: $mainHeading;
-      margin: 10px auto;
+      font-size: 8em;
+      margin: 29px 0 0 0;
       font-style: italic;
       font-weight: 400;
     }
     .month {
       text-transform: uppercase;
-      font-size: $subHeading;
+      font-size: 2em;
+      line-height: 1.5em;
     }
     .year {
         @extend .month;
