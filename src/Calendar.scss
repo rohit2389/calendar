@@ -1,0 +1,197 @@
+$white: #FFFFFF;
+$ltGrey: #EFEFEF;
+$mdGrey: #C0C0C0;
+$dkGrey: #635f5f;
+$secondary:#45a29a;
+$dkSecondary: darken($secondary, 10%);
+$exLtSecondary: lighten($secondary, 45%);
+$ltSecondary: lighten($secondary, 10%);
+$borderColor: $dkGrey;
+$background: $white;
+$mainHeading: 8em;
+$subHeading: 2em;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $white;
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+}
+
+.vertical-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+.row-reverse {
+  display: flex;
+  flex-direction: row-reverse;
+
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2px;
+}
+
+.calendar {
+  display: flex;
+  height: 270px;
+  width: 600px;
+  margin: auto;
+  border: 1px solid $dkGrey;
+  
+  .calendar-left-panel {
+    display: block;
+    color: #FFFFFF;
+    width: 300px;
+    font-size: 1rem;
+    background: #43a398;
+    text-align: center;
+
+    .day-display {
+      align-items: center;
+      height: 40px;
+      line-height: 40px;
+      font-size: 1.4rem;
+      display: block; 
+      font-weight: bold;
+      background: $dkSecondary;
+    }
+
+    .date {
+      text-align: center;
+    font-size: 10em;
+    margin: 9px auto;
+    font-weight: 400;
+    }
+    .month {
+      text-transform: uppercase;
+      font-size: $subHeading;
+    }
+    .year {
+        @extend .month;
+        color: $ltSecondary;
+    }
+  }
+
+  .calendar-right-panel {
+    display: block;
+    background: #FFFFFF;
+    width: 300px;
+    font-size: 1.3rem;
+
+    footer {
+      @extend .row-reverse;
+
+      button {
+        border: none;
+        background: transparent;
+        margin: 9px 19px;
+        cursor: pointer;
+        text-transform: uppercase;
+      }
+    }
+
+    header {
+      @extend .vertical-center;
+      color: $dkGrey;
+      cursor: default;
+      font-size: 1.4rem;
+      display: block;
+      font-weight: bold;
+      user-select: none;
+      text-align: center;
+
+      .month-display {
+        align-items: center;
+        height: 40px;
+      }
+
+      .month-label {
+        flex: 1;
+      }
+
+      .arrow {
+        text-align: center;
+        flex-basis: 15%;
+        font-weight: bold;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background: $dkSecondary;
+        }
+      }
+    }
+
+    .week {
+      &:first-child {
+        border-top: none;
+      }
+    }
+
+    .day-names {
+      color: $secondary;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: default;
+      font-size: 1.2rem;
+
+      .day {
+        cursor: default;
+        
+        &:hover {
+          background: inherit;
+        }
+      }
+    }
+
+    .day {
+      @extend .vertical-center;
+      flex: 1;
+      height: 35px;
+      cursor: pointer;
+      margin: 0 4px;
+
+      &:hover {
+        background: $ltGrey;
+        border-radius: 50%
+      }
+
+      &:first-child {
+        border-left: none;
+      }
+
+      &.today {
+        background: $exLtSecondary;
+        border-radius: 50%
+      }
+
+      &.different-month {
+        visibility: hidden;
+      }
+
+      &.selected {
+        background: $secondary;
+        color: $white;
+        border-radius: 50%;
+        font-weight: bold;
+      }
+    }
+  }
+}
